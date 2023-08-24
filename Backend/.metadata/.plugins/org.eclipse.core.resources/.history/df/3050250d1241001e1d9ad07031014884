@@ -1,0 +1,44 @@
+package com.app.Service;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.Entities.BookTicket;
+import com.app.Repository.TicketRepository;
+import com.app.Ticket.dto.AuthRespnseDTO;
+
+public class TicketServiceImpl implements TicketService {
+
+	@Autowired
+	private TicketRepository ticketrepo;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	@Override
+	public List<BookTicket> getallticketdetails() {
+		
+		return ticketrepo.findAll();
+	}
+
+	@Override
+	public BookTicket addticketdetails(AuthRespnseDTO transientticket) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BookTicket updateticketdetails(BookTicket detachedticket) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteticketdetails(int ticketid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

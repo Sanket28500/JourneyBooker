@@ -1,0 +1,14 @@
+package com.app.Service;
+
+import java.util.List;
+
+import com.app.controller.TrainController;
+import com.app.dto.AuthResponseDTO;
+
+public interface TrainService {
+
+	List<TrainController> getAllTrains();
+
+	TrainController addtrainDetails(AuthResponseDTO transienttrains);
+
+}

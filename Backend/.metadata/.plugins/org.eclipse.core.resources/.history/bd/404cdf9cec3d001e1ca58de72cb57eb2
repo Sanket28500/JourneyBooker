@@ -1,0 +1,28 @@
+package com.app.Entities;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userid;
+	
+	@Column(name = "username",nullable = false)
+	private String username;
+	
+	@Column(name = "password",nullable = false)
+	private String password;
+	
+	@Column(name = "email",nullable = false)
+	private String email;
+	
+	@Column(name = "gender",nullable = false)
+	private String gender;
+	
+	@Column(name = "age",nullable = false)
+	private int age;
+	
+}

@@ -1,0 +1,39 @@
+package com.app.Entities;
+
+import java.sql.Time;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+public class BookTicket {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer ticketid;
+	
+	@Column(nullable = false)
+	private int NoOfTickets;
+	
+	@Column(length =  = false)
+	private String Source;
+	
+	@Column(nullable = false)
+	private String Destination;
+	
+	
+}

@@ -1,0 +1,7 @@
+package com.app.dto;
+
+public class AuthRequestDTO {
+
+	private String email;
+	private String Password;
+}

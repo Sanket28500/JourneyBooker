@@ -1,0 +1,21 @@
+package com.app.Service;
+
+import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import com.app.Entities.User;
+
+public interface UserService {
+
+	List<User> getAllUsers();
+
+	 User addUserDetails(User transientUser);
+
+	User getUserbyid(int userid);
+
+	String deleteUserDetails(int userid);
+
+}

@@ -1,0 +1,10 @@
+package com.app.Entities;
+
+import javax.persistence.Id;
+
+public class BookTicket {
+
+	@Id
+	@g
+	private Integer ticketid;
+}

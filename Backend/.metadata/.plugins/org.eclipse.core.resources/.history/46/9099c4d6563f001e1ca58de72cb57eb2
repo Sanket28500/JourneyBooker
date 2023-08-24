@@ -1,0 +1,20 @@
+package com.app.Service;
+
+import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import com.app.Entities.User;
+
+public interface UserService {
+
+	List<User> getAllUsers();
+
+	 User addUserDetails(User transientUser);
+
+	User getUserbyid(
+			@Valid @Min(value = 1, message = "User id > 1") @Max(value = 100, message = "User id must be < 100") int userid);
+
+}

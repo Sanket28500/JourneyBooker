@@ -1,0 +1,13 @@
+package com.app.Service;
+
+import java.util.List;
+
+import com.app.Entities.User;
+
+public interface UserService {
+
+	List<User> getAllUsers();
+
+	 User addUserDetails(User transientUser);
+
+}

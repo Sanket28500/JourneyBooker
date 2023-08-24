@@ -1,0 +1,58 @@
+package com.app.Service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.Entities.Train;
+import com.app.Repository.TrainRepository;
+import com.app.User.dto.AuthResponseDTO;
+import com.app.controller.TrainController;
+
+@Service
+@Transactional
+public class TrainServiceImpl implements TrainService{
+
+	@Autowired
+	private TrainRepository trainrepo;
+	
+	
+	
+	@Override
+	public List<Train> getAllTrains() {
+		return trainrepo.findAll();
+	}
+
+
+	@Override
+	public Train updatetraindetails(Train detachedtrain) {
+		String msg="Invalid train id can't be deleted!";
+		if(trainrepo.existsById(detachedtrain.getTrainid()))
+		{
+		 msg="id with"+detachedtrain.getTrainid()+"updated!";
+		}
+		return trainrepo.save(detachedtrain);
+	}
+
+	@Override
+	public String deletetraindetails(int trainid) {
+		String msg="Invalid train id can't be deleted!";
+		if(trainrepo.existsById(trainid))
+		{
+			trainrepo.deleteById(trainid);
+			msg="id with"+trainid+"deleted!";
+		}
+		return msg;
+	}
+
+
+	@Override
+	public Train addtraindetails(Train transienttrain) {
+		
+		return trainrepo.save(transienttrain);
+	}
+
+}

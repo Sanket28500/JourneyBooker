@@ -1,0 +1,26 @@
+package com.app.Entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "train")
+public class Train {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int trainid;
+	
+	@Column(name = "trainname",nullable = false,unique = true)
+	private String trainname;
+	
+	@Column(name = "source",nullable = false,unique = true)
+	private String source;
+	
+	@Column(name = "destination",nullable = false,unique = true)
+	private String destination;
+}

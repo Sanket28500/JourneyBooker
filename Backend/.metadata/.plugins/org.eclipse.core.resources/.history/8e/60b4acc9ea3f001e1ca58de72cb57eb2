@@ -1,0 +1,63 @@
+package com.app.Service;
+
+import java.util.List;
+
+
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.Custom_Exception.ResourceNotFoundException;
+import com.app.Entities.User;
+import com.app.Repository.UserRepository;
+import com.app.dto.AuthRequestDTO;
+import com.app.dto.AuthResponseDTO;
+
+@Service
+@Transactional
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository userrepo;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	@Override
+	public List<User> getAllUsers() {
+		
+		return userrepo.findAll();
+	}
+
+	@Override
+	public User addUserDetails(AuthResponseDTO transientUser) {
+		
+		return userrepo.save(transientUser);
+	}
+
+	@Override
+	public User getUserbyid(int userid) {	
+		return userrepo.findById(userid)
+				.orElseThrow(()-> new ResourceNotFoundException("Invalid User id, can't get User Details!!!"));
+	}
+
+	public AuthResponseDTO authenticateUser(AuthRequestDTO request) {
+		User user=userrepo.findByEmailAndPassword(request.getEmail(),request.getPassword())
+				.orElseThrow(() -> new ResourceNotFoundException("User not found : invalid email and password"));
+		
+		AuthResponseDTO authrespdto=mapper.map(user, AuthResponseDTO.class);
+		return authrespdto;
+	}
+	@Override
+	public String deleteUserDetails(int userid) {
+		String msg="User id is Invalid!, can't be deleted!";
+		if(userrepo.existsById(userid)) {
+			userrepo.deleteById(userid);
+			msg="User with id="+userid+" deleted!";
+		}
+		return msg;
+	}
+
+}

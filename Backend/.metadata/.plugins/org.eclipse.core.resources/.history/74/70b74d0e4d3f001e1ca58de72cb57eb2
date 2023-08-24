@@ -1,0 +1,22 @@
+package com.app.controller;
+
+import java.time.LocalDateTime;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class UserController {
+
+	public UserController() {
+		System.out.println("in ctr of"+getClass());
+	}
+	
+	@GetMapping("/")
+	public String showHomepage(Model map) {
+		System.out.println("in show home page"+map);
+		map.addAttribute("ts",LocalDateTime.now());
+		return "/index";
+	}
+}

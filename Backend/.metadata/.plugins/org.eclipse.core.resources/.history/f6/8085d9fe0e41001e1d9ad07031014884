@@ -1,0 +1,15 @@
+package com.app.Service;
+
+import java.util.List;
+
+import com.app.Entities.BookTicket;
+import com.app.Ticket.dto.AuthRespnseDTO;
+
+
+public interface TicketService {
+
+	List<BookTicket> getallticketdetails();
+
+	BookTicket addticketdetails(AuthRespnseDTO transientticket);
+
+}

@@ -1,0 +1,47 @@
+package com.app.Service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.Entities.Train;
+import com.app.Repository.TrainRepository;
+import com.app.controller.TrainController;
+import com.app.dto.AuthResponseDTO;
+
+@Service
+@Transactional
+public class TrainServiceImpl implements TrainService{
+
+	@Autowired
+	private TrainRepository trainrepo;
+	
+	
+	
+	@Override
+	public List<TrainController> getAllTrains() {
+		return trainrepo.findAll();
+	}
+
+	@Override
+	public TrainController addtrainDetails(AuthResponseDTO transienttrains) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Train updatetraindetails(Train detachedtrain) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deletetraindetails(Train trainid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

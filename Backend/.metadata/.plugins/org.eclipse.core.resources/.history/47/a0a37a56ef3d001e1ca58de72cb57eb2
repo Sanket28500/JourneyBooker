@@ -1,0 +1,14 @@
+package com.app.Entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "train")
+public class Train {
+
+	private int trainid;
+	private String trainname;
+	private String source;
+	private String destination;
+}

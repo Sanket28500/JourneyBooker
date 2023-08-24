@@ -1,0 +1,10 @@
+package com.app.Entities;
+
+import java.time.LocalDate;
+
+public class Ticket {
+
+	private int ticketid;
+	private int Nooftickets;
+	private LocalDate time;
+}
