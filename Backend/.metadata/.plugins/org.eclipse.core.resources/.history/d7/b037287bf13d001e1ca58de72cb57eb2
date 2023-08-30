@@ -1,7 +1,0 @@
-package com.app.Entities;
-
-public class Payment {
-
-	private int paymentid;
-	
-}

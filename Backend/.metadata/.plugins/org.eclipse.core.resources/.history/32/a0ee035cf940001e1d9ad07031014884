@@ -1,5 +1,0 @@
-package com.app.Train.dto;
-
-public class ApiResponse {
-
-}
